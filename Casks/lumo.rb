@@ -4,21 +4,21 @@ cask "lumo" do
 
   on_macos do
     on_arm do
-      sha256 "cf962be47ae37ec5662cdcea9b6f96abfd375814399f305de64c7ffe51768799"
+      sha256 "da6fa025df5ec28de63efb463c663572016ada2d75e49cdd8918f466fba87db3"
       url "https://github.com/LumoAuth/cli/releases/download/v#{version}/lumo_Darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "958d61d60a9d6b5cdd10883874f385ec4608adfb71f33932e5b255996bae7ccb"
+      sha256 "995dc58140a0a9a8b3874e4c8066ac0ec9b0b475d535f80795bd9ae1ac1aed41"
       url "https://github.com/LumoAuth/cli/releases/download/v#{version}/lumo_Darwin_x86_64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "36acd416530c35abbecd1630f4032ae6f4105ef649ad72989bd0f851d9e116fb"
+      sha256 "4b7533a6e711cb0cf66c3209a212197f3ad6e4a6a057289920f76b49ca607e2c"
       url "https://github.com/LumoAuth/cli/releases/download/v#{version}/lumo_Linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "57078ab606b134d626dd54e988e9ee30cc04520642e59946f46c132cc1dbbe7f"
+      sha256 "a2afa63acb060d373ad9bfdda3af89aa7bdd8668deda96f01c564e8b936c35d5"
       url "https://github.com/LumoAuth/cli/releases/download/v#{version}/lumo_Linux_x86_64.tar.gz"
     end
   end
@@ -33,14 +33,14 @@ cask "lumo" do
 
   binary "lumo"
 
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/lumo"]
+  postflight_steps do
+    on_macos do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/lumo"]
     end
   end
   generate_completions_from_executable "lumo", "completion"
 
-  # No zap stanza required
+  zap :not_required
 
   caveats <<~EOS
     Get started with:
