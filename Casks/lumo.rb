@@ -4,21 +4,21 @@ cask "lumo" do
 
   on_macos do
     on_arm do
-      sha256 "da6fa025df5ec28de63efb463c663572016ada2d75e49cdd8918f466fba87db3"
+      sha256 "1713ec47ff68a5d418275f71861ad1afd9ffce12f930456cef5c1b4e29d06033"
       url "https://github.com/LumoAuth/cli/releases/download/v#{version}/lumo_Darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "995dc58140a0a9a8b3874e4c8066ac0ec9b0b475d535f80795bd9ae1ac1aed41"
+      sha256 "1cc5174ae1a7fa48926c238a5e640a518226dce476f6a80cee456fe6f624367f"
       url "https://github.com/LumoAuth/cli/releases/download/v#{version}/lumo_Darwin_x86_64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "4b7533a6e711cb0cf66c3209a212197f3ad6e4a6a057289920f76b49ca607e2c"
+      sha256 "6e8d80a6a636fb614425f8d054d79237ebea6952cf79fb18157400c6988f84a9"
       url "https://github.com/LumoAuth/cli/releases/download/v#{version}/lumo_Linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "a2afa63acb060d373ad9bfdda3af89aa7bdd8668deda96f01c564e8b936c35d5"
+      sha256 "ad6237f02a2be935179286779c1530466835ab2efbe3a1b43b0a385d708c171a"
       url "https://github.com/LumoAuth/cli/releases/download/v#{version}/lumo_Linux_x86_64.tar.gz"
     end
   end
